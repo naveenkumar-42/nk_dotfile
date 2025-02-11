@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert PDF to Word</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feature.css') }}">
+    <script src="{{ url_for('static',filename = 'script.js')}}"></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu-links">
+                <a class="nav-btn" href="{{ url_for('home')}}">Home</a>
+
+                <!-- Features with Dropdown -->
+                <div class="dropdown">
+                    <a class="nav-btn" href="#" onclick="toggleDropdown(event)">Features ▼</a>
+                    <div class="dropdown-content" id="featuresDropdown">
+                        <a href="{{ url_for('translator')}}">Translator</a>
+                        <a href="{{ url_for('convert_pdf')}}">PDF to Word</a>
+                        <a href="{{ url_for('convert_word_to_pdf')}}">Word to PDF</a>
+                        <a href="{{ url_for('convert_image_to_pdf')}}">Image to PDF</a>
+                        <a href="{{ url_for('convert_excel_to_pdf')}}">Excel to PDF</a>
+                        <a href="{{ url_for('compress_pdf')}}">Compress PDF</a>
+                        <a href="{{ url_for('pdf_to_image')}}">PDF to Image</a>
+                        <a href="{{ url_for('merge_pdfs')}}">Merge PDFs</a>
+                        <a href="{{ url_for('split_pdf')}}">Split PDFs</a>
+                    </div>
+                </div>
+
+                <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+                <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+                <div class="login">
+                    <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="main-container">
+        <div class="container">
+            <h1>Convert PDF to Word</h1>
+            <form action="/convert_pdf" method="POST" enctype="multipart/form-data">
+                <div class="box" id="drop-zone">
+                    <input type="file" name="pdf_file" id="pdf_file" accept="application/pdf" hidden required>
+                    <span>Drag and drop a PDF file or click to select</span>
+                </div>
+                <p id="file-name"></p>
+                <div class="output-format">
+                    <label for="output_format">Select Output Format:</label>
+                    <select name="output_format" id="output_format" required>
+                        <option value="word">Word (.docx)</option>
+                        <option value="text">Text (.txt)</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-btn">
+                    <button type="submit" class="submit">Convert</button>
+                </div>
+            </form>
+            <div class="bottom">
+                <p>Need help? <a href="/help">Contact Support</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('pdf_file');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = `Selected File: ${fileInput.files[0].name}`;
+            }
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                fileNameDisplay.textContent = `Selected File: ${fileInput.files[0].name}`;
+            }
+        });
+        function toggleDropdown(event) {
+            event.preventDefault(); // Prevent default anchor action
+            let dropdown = document.getElementById("featuresDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            let dropdown = document.getElementById("featuresDropdown");
+            if (!event.target.closest(".dropdown")) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

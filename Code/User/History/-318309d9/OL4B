@@ -1,0 +1,12 @@
+[general]
+bars = 30
+
+[output]
+method = raw
+
+[smoothing]
+integral = 90
+
+[colors]
+background = black
+foreground = white

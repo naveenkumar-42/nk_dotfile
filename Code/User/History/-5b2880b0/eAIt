@@ -1,0 +1,14 @@
+updated desktop customizations
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Changes to be committed:
+#	new file:   cava_config
+#	modified:   config
+#	new file:   scripts/cava.sh
+#	modified:   style.css
+#
+# Changes not staged for commit:
+#	modified:   scripts/cava.sh
+#

@@ -1,0 +1,179 @@
+{
+  "layer": "top",
+  "position": "top",
+  "width": 1920,
+  "margin": "0 0 0 0",
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window",
+    "custom/cava"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/weather",
+    "custom/updates",
+    "backlight",
+    "temperature",
+    "cpu",
+    "memory",
+    "battery",
+    "pulseaudio",
+    "idle_inhibitor",
+    "tray",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "focused": "",
+      "default": ""
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 300,
+    "exec": "wttrbar --location erode",
+    "return-type": "json"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "icon": true,
+    "icon-size": 20
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 20
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%A, %d %B %Y }</big>\n<tt><small>{calendar}</small></tt>",
+    "format": " {:%a %d %b  %I:%M %p}",
+    "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/OCV"
+  },
+  "cpu": {
+    "format ": "🖳{usage}%",
+    "on-click": "foot -e htop",
+    "interval": 3
+  },
+  "memory": {
+    "format": "🖴 {: >3}%",
+    "on-click": "kitty -e btop",
+    "interval": 3
+  },
+  "temperature": {
+    "thermal-zone": 6,
+    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+    "critical-threshold": 90,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C",
+    "interval": 3
+  },
+  "backlight": {
+    "format": "{icon} {percent: >3}%",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    "on-scroll-up": "brightnessctl -c backlight set +5%"
+  },
+  "battery": {
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "format": "{icon} {capacity: >3}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "network": {
+    "format": "⚠Disabled",
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "⚠Disabled",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "family": "ipv4",
+    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBytes} down: {bandwidthDownBytes}",
+    "interval": 2
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰂪"
+    },
+    "interval": 7200,
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates",
+    "on-click": "kitty -e paru"
+  },
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cava.sh",
+    "interval": 1,
+    "tooltip": true
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout -b 5 -c 0 -r 0 -m 0 --protocol layer-shell",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  }
+}

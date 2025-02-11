@@ -1,0 +1,105 @@
+[1739271600055] INFO  (ext): SQLTools is starting
+[1739271600057] INFO  (ext): initializing language client...
+[1739271600058] INFO  (ext): Registering client for languages [{"scheme":"sqltools"},{"language":"sql","scheme":"untitled"},{"language":"sql","scheme":"file"},{"language":"sql","scheme":"sqltools"}]
+    ns: "lc"
+[1739271600063] INFO  (ext): loading plugins...
+[1739271600063] INFO  (ext): registering Formatter Plugin.
+    plugin: {
+      "name": "Formatter Plugin"
+    }
+[1739271600063] INFO  (ext): registering Connection Manager Plugin.
+    plugin: {
+      "name": "Connection Manager Plugin"
+    }
+[1739271600064] INFO  (ext): registering CodeLens Plugin.
+    plugin: {
+      "name": "CodeLens Plugin",
+      "registeredLanguages": []
+    }
+[1739271600064] INFO  (ext): registering Dependency Manager Plugin.
+    plugin: {
+      "name": "Dependency Manager Plugin",
+      "installingDrivers": []
+    }
+[1739271600066] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271600066] INFO  (ext): registering History Manager Plugin.
+    plugin: {
+      "name": "History Manager Plugin"
+    }
+[1739271600067] INFO  (ext): registering Bookmarks Manager Plugin.
+    plugin: {
+      "name": "Bookmarks Manager Plugin"
+    }
+[1739271600068] INFO  (ext): registering Authentication Provider Plugin.
+    plugin: {
+      "name": "Authentication Provider Plugin",
+      "isRegistered": false
+    }
+[1739271600068] INFO  (ext): registering Object Drop-in Provider (plugin).
+    plugin: {
+      "type": "plugin",
+      "name": "Object Drop-in Provider",
+      "isRegistered": false
+    }
+[1739271600069] INFO  (ext): SQLTools activation completed. 13.303922 ms
+[1739271600069] INFO  (ext): Formatter Plugin registered!
+[1739271600069] INFO  (ext): CodeLens Plugin registered!
+[1739271600069] INFO  (ext): Dependency Manager Plugin registered!
+[1739271600069] INFO  (ext): Connection Manager Plugin registered!
+[1739271600069] INFO  (ext): History Manager Plugin registered!
+[1739271600069] INFO  (ext): Bookmarks Manager Plugin registered!
+[1739271600069] INFO  (ext): Authentication Provider Plugin registered!
+[1739271600069] INFO  (ext): Object Drop-in Provider (plugin) registered!
+[1739271600421] INFO  (ext): registering MySQL/MariaDB/TiDB Plugin (driver).
+    plugin: {
+      "extensionId": "mtxr.sqltools-driver-mysql",
+      "name": "MySQL/MariaDB/TiDB Plugin",
+      "type": "driver"
+    }
+[1739271600511] INFO  (ls): SQLTools Server started!
+===============================
+Using node runtime?: no
+ExecPath: /opt/visual-studio-code/code 
+===============================
+[1739271602560] INFO  (ext): LanguageClient ready
+    ns: "lc"
+[1739271602561] INFO  (ext): EXECUTING COMMAND => sqltools.refreshTree
+[1739271602561] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271602561] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271602558] INFO  (ls): Initialized with node version:v20.18.1
+[1739271602562] INFO  (ls): REQUEST RECEIVED => ls/RegisterPlugin
+[1739271602562] INFO  (ls): request to register plugin: "/home/navee/.vscode/extensions/mtxr.sqltools-driver-mysql-0.6.3/out/ls/plugin.js"
+[1739271602654] INFO  (ls): Driver mysql registered!
+    place: "driver-map"
+    ns: "ls-context"
+[1739271602655] INFO  (ls): Driver mariadb registered!
+    place: "driver-map"
+    ns: "ls-context"
+[1739271602655] INFO  (ls): Driver tidb registered!
+    place: "driver-map"
+    ns: "ls-context"
+[1739271603005] INFO  (ext): MySQL/MariaDB/TiDB Plugin (driver) registered!
+[1739271603008] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271603136] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271604043] INFO  (ext): EXECUTING COMMAND => sqltools.refreshTree
+[1739271604043] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271604044] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271606834] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271607433] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271780789] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271878048] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739271928905] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"
+[1739272248665] INFO  (ext): Connection explorer changed. Will be updated.
+    ns: "conn-man:explorer"

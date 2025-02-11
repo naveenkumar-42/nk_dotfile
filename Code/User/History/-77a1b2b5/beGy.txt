@@ -1,0 +1,38 @@
+Flask
+Flask-Session
+requests
+firebase-admin
+googletrans==4.0.0-rc1
+scikit-learn
+PyPDF2
+python-docx
+Pillow
+fpdf
+img2pdf
+openpyxl
+docx2pdf
+reportlab
+fitz
+frontend
+tools
+python-dotenvsh-keygen -t rsa -b 4096 -C "naveenkumarpoff@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/navee/.ssh/id_rsa): git
+Enter passphrase for "git" (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in git
+Your public key has been saved in git.pub
+The key fingerprint is:
+SHA256:J2D960Il8zufp4iJTbdW0wt6isKZj2iVRTAIK8T/zwM naveenkumarpoff@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|.... .o.         |
+|.. ..  o.        |
+|. o   o..        |
+| . . . .+..      |
+|    .  oS=o  .   |
+|     Eo .o..+ .  |
+|     o++. o+ o . |
+|    ..=O.*=o..o  |
+|   .. ooBo==+o   |
++----[SHA256]-----+

@@ -1,0 +1,43 @@
+# General settings
+font=JetBrains Mono Bold 12  # Bold font for a modern look
+background-color=#1a1b26  # Softer dark background
+text-color=#a9b1d6        # Gentle pastel text
+border-color=#7aa2f7      # Bright border for contrast
+border-size=2
+padding=12                # Slightly larger padding for better readability
+opacity=0.95              # Slightly transparent background
+default-timeout=7000      # Slightly longer timeout
+max-visible=4             # Fewer notifications for cleaner UI
+
+# Notification positioning
+width=350                 # Wider notifications for better content display
+height=auto
+margin=15
+corner-radius=12          # Rounded corners for a smoother look
+anchor=bottom-right       # Move to bottom-right for a less intrusive feel
+layer=overlay             # Place above other UI elements
+
+# Add animations (requires `mako` with animation support)
+animation=slide           # Sliding animations
+animation-duration=300ms  # Smooth, fast animation
+animation-easing=ease-out
+
+# Style for critical notifications
+[urgency=critical]
+background-color=#db4b4b  # Eye-catching red for critical alerts
+text-color=#ffffff
+border-color=#ff5555
+padding=16                # Extra padding for important notifications
+icon=warning              # Use warning icon for critical messages (if supported)
+
+# Style for low urgency notifications
+[urgency=low]
+background-color=#1e1e2e  # Darker and subtler for low-priority messages
+text-color=#9ece6a        # Greenish text for subtle notifications
+border-color=#8bb68e
+
+# Style for normal urgency notifications
+[urgency=normal]
+background-color=#1e2030  # Modern bluish-gray background
+text-color=#c0caf5        # Cool blue text for standard notifications
+border-color=#89b4fa

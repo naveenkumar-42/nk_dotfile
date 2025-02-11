@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashroom Mama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:wght@100..900&family=Poetsen+One&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #277916;
+    --secondary-color: #abcea5;
+    --accent-color: #0b5b00;
+    --background-color: #f5f5f5;
+    --button-color: #8be07f;
+    --button-hover-color: #77c76a;
+    --text-color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+}
+
+.nav-bar a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F2B52E;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+.nav-bar {
+    margin-right: 6%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.description h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    font-family: "Poetsen One", serif;
+}
+
+.description span {
+    color: peru;
+    font-family: "Fredoka", sans-serif;
+    font-style: italic;
+}
+
+.description p {
+    font-size: 1.6rem;
+    margin: 15px 0;
+    font-weight: 500;
+    text-align: right;
+}
+
+.box {
+    background: var(--accent-color);
+    padding: 20px 10px;
+    border-radius: 50px;
+    align-items: center;
+    margin-top: 50px;
+    width: 300px;
+    height: 230px;
+    margin-left: auto;
+}
+
+.box p {
+    color: var(--text-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.box a {
+    text-decoration: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: var(--button-color);
+    color: var(--text-color);
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: var(--button-hover-color);
+    box-shadow: 1px 2px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-btn {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    background: url("images/Zomato_logo.png") no-repeat center/cover;
+    border: none;
+    cursor: pointer;
+}
+
+.img-btn2 {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    background: url("images/Swiggy_logo.png") no-repeat center/cover;
+    border: none;
+    cursor: pointer;
+}
+
+.img-btn,
+.img-btn2 {
+    margin: 20px 10px;
+}
+
+.img-btn:hover {
+    opacity: 0.9;
+}
+
+.img-btn2:hover {
+    opacity: 0.9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 10px;
+}
+
+
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: var(--accent-color);
+}
+
+/* customer */
+.stats-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.stats-container {
+    width: 22vmin;
+    height: 18vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 50px;
+    gap: 15px;
+    padding: 1em 0;
+    font-size: 15px;
+    border-radius: 0.8em;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 15px solid #277916;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effect */
+.stats-container:hover {
+    transform: scale(1.1);
+    background-color: #f2f2f2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: #333;
+}
+
+.stats-container:hover .stats-number {
+    color: peru;
+    text-shadow: 0 0 8px rgba(255, 253, 253, 0.8);
+}
+
+.stats-container:hover .stats-text {
+    color: #277916;
+}
+
+.stats-container:hover .stats-icon {
+    color: peru;
+    transform: rotate(15deg);
+}
+
+.stats-icon {
+    color: peru;
+    font-size: 3em;
+}
+
+.stats-number {
+    color: #000000;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 3.5em;
+}
+
+.stats-text {
+    color: #333;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 0.7em 0;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+@media screen and (max-width: 1024px) {
+    .stats-wrapper {
+        width: 85vw;
+    }
+
+    .stats-container {
+        height: 26vmin;
+        width: 26vmin;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stats-wrapper {
+        width: 90vw;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .stats-container {
+        width: calc(50% - 40px);
+        height: 30vmin;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stats-wrapper {
+        gap: 15px;
+    }
+
+    .stats-container {
+        width: 100%;
+        height: 25vmin;
+        font-size: 12px;
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.footer-top {
+    display: inline-flex;
+    column-gap: 30px;
+}
+
+.footer-top p {
+    font-size: 20px;
+}
+
+/* .footer-top a{
+    text-decoration: none;
+} */
+.footer-top p {
+    font-size: 20px;
+}
+
+.footer-top p span {
+    margin: 0 10px;
+}
+
+.footer-top a i {
+    margin: 0 5px;
+    /* Adjust spacing as needed */
+}
+
+.footer p {
+    margin-top: 15px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #F2B52E;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .container img {
+        width: 45%;
+        margin-right: 20px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/Mm logo round.PNG" alt="Mushroom Mama Logo">
+        <nav class="nav-bar">
+            <a href="#" class="contact-btn">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <img src="images/Mushroom_Wings hd.png" alt="Mushroom Wings">
+        <div class="description">
+            <h1>INDIA'S FIRST <span>VEG</span> WINGS</h1>
+            <p>Only in Mushroom MaMa</p>
+            <p>-Not For Franchiese</p>
+            <div class="box">
+                <p>Order Now</p>
+                <a href="https://www.zomato.com/chennai/mushroom-mama-potheri/order">
+                    <button class="img-btn"></button>
+                </a>
+                <a href="https://www.swiggy.com/">
+                    <button class="img-btn2"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Us</h2>
+            <p>Please feel free to reach out to us. We are happy to assist you!</p>
+            <form>
+                <input type="text" placeholder="Your Name" required><br><br>
+                <input type="email" placeholder="Your Email" required><br><br>
+                <textarea placeholder="Your Message" required></textarea><br><br>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!--Counts banner-->
+    <div class="stats-wrapper">
+        <div class="stats-container">
+            <!-- <i class="fas fa-ring stats-icon"></i> -->
+            <span class="stats-number" data-val="1000">000</span>
+            <span class="stats-text">Happy Customers</span>
+        </div>
+        <div class="stats-container">
+            <!-- <i class="fas fa-smile-beam stats-icon"></i> -->
+            <span class="stats-number" data-val="800">000</span>
+            <span class="stats-text"></span>
+        </div>
+        <div class="stats-container">
+            <!-- <i class="fas fa-gem stats-icon"></i> -->
+            <span class="stats-number" data-val="200">000</span>
+            <span class="stats-text">Five Star Reviews</span>
+        </div>
+        <div class="stats-container">
+            <!-- <i class="fas fa-star stats-icon"></i> -->
+            <span class="stats-number" data-val="1200">000</span>
+            <span class="stats-text">Orders</span>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-top">
+            <p>
+                <i class="fa-solid fa-phone" style="color: #ffffff;"></i> +91 90257 97638
+                <span>|</span>
+                <i class="fa-regular fa-envelope" style="color: #fcfcfc;"></i> mushroommama@gmail.com
+                <span>|</span>
+                <a href="https://www.instagram.com/mushroommama_official/">
+                    <i class="fa-brands fa-instagram" style="color: #fafafa;"></i>
+                </a>
+                <a href="https://www.facebook.com/mushroommamaofficial">
+                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                </a>
+                <a
+                    href="https://www.google.com/search?q=mushroom+mama+reviews&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAjIHCAIQIRiPAjIHCAMQIRiPAtIBCDg2MzVqMGo3qAIAsAIB&client=ms-android-vivo-rvo3&sourceid=chrome-mobile&ie=UTF-8&sei=BKWfZ87WMsXuseMPrPOHqQ8&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzVUv0AFQyVe6ioU9h3wYhvyYyIGzhgoy1rnbF6ejjMDg2H7edEJhoaKonR4XohPXSOH0YZtkbOiorQmOjz27mqEDQw50&ictx=1&ved=2ahUKEwjp6pDeu6WLAxX6d2wGHdofFgYQrrQLegQIKxAA#ebo=0">
+                    <i class="fa-brands fa-google" style="color: #fcfcfc;"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/mushroom-mama">
+                    <i class="fa-brands fa-linkedin" style="color: #fcfcfc;"></i>
+                </a>
+            </p>
+        </div>
+        <p>
+            &copy; 2025 MushroomMama. All rights reserved.
+        </p>
+        <p>
+            Created with ❤️ by <a href=""> Solvixsofteworks</a>
+        </p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("contactModal");
+            var btn = document.querySelector(".contact-btn");
+            var span = document.querySelector(".close");
+
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "block";
+            });
+
+            span.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let counters = document.querySelectorAll(".stats-number");
+
+            counters.forEach((counter) => {
+                let start = 0;
+                let end = parseInt(counter.getAttribute("data-val")); // Get target value
+                let duration = Math.floor(2000 / end); // Adjust speed based on value
+                let increment = Math.ceil(end / 100); // Ensure smooth animation
+
+                let updateCounter = setInterval(() => {
+                    start += increment;
+                    if (start >= end) {
+                        start = end; // Ensure exact number
+                        clearInterval(updateCounter);
+                    }
+                    counter.textContent = start + "+"; // Add '+' next to the number
+                }, duration);
+            });
+            setTimeout(() => {
+                updateCounterValue(1, 1000); // Change second counter (index 1)
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>

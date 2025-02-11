@@ -1,0 +1,25 @@
+]0;cava
+Usage : cava [options]
+Visualize audio input in terminal. 
+
+Options:
+	-p          path to config file
+	-v          print version
+
+Keys:
+        Up        Increase sensitivity
+        Down      Decrease sensitivity
+        Left      Decrease number of bars
+        Right     Increase number of bars
+        r         Reload config
+        c         Reload colors only
+        f         Cycle foreground color
+        b         Cycle background color
+        q         Quit
+
+as of 0.4.0 all options are specified in config file, see in '/home/navee/.config/cava/'
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii

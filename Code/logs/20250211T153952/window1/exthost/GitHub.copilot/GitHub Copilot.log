@@ -1,0 +1,58 @@
+2025-02-11 15:39:59.425 [warning] [certificates] Failed to parse certificate # ACCVRAIZ1
+ Error: error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE
+    at new X509Certificate (node:internal/crypto/x509:119:21)
+    at /home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:79:36
+    at Array.filter (<anonymous>)
+    at lre.removeExpiredCertificates (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:77:32)
+    at lre.getAllRootCAs (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:68:38)
+    at Ope.createSecureContext (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificates.ts:47:23) {
+  opensslErrorStack: [
+    'error:0c00006d:ASN.1 encoding routines:OPENSSL_internal:DECODE_ERROR'
+  ],
+  library: 'PEM routines',
+  function: 'OPENSSL_internal',
+  reason: 'NO_START_LINE',
+  code: 'ERR_OSSL_PEM_NO_START_LINE'
+}
+2025-02-11 15:39:59.425 [warning] [certificates] Failed to parse certificate # ACCVRAIZ1
+ Error: error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE
+    at new X509Certificate (node:internal/crypto/x509:119:21)
+    at /home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:79:36
+    at Array.filter (<anonymous>)
+    at lre.removeExpiredCertificates (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:77:32)
+    at lre.getAllRootCAs (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificateReaders.ts:68:38)
+    at Ope.createSecureContext (/home/navee/.vscode/extensions/github.copilot-1.267.0/lib/src/network/certificates.ts:47:23) {
+  opensslErrorStack: [
+    'error:0c00006d:ASN.1 encoding routines:OPENSSL_internal:DECODE_ERROR'
+  ],
+  library: 'PEM routines',
+  function: 'OPENSSL_internal',
+  reason: 'NO_START_LINE',
+  code: 'ERR_OSSL_PEM_NO_START_LINE'
+}
+2025-02-11 15:39:59.425 [info] [certificates] Removed 2 expired certificates
+2025-02-11 15:40:01.024 [info] [fetcher] Using Helix fetcher.
+2025-02-11 15:40:01.025 [info] [code-referencing] Public code references are enabled.
+2025-02-11 15:40:41.342 [warning] [relatedFiles] unknown language properties
+2025-02-11 15:40:43.072 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 1019 ms
+2025-02-11 15:40:43.077 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:40:43.078 [info] [streamChoices] request done: headerRequestId: [9a9c469c-ec6c-418b-9ac2-ccae7ef12199] model deployment ID: [d119-20250130060731]
+2025-02-11 15:40:43.904 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 462 ms
+2025-02-11 15:40:43.905 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:40:43.906 [info] [streamChoices] request done: headerRequestId: [6ecd74b8-853b-4b23-8cdf-91246b6f21d1] model deployment ID: [d122-20250130125908]
+2025-02-11 15:40:44.915 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 529 ms
+2025-02-11 15:40:44.916 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:40:44.917 [info] [streamChoices] request done: headerRequestId: [fc596ffd-6b3e-4dc3-92b4-cba341de9f70] model deployment ID: [d133-20250131001027]
+2025-02-11 15:40:45.961 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 441 ms
+2025-02-11 15:40:45.963 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:40:45.964 [info] [streamChoices] request done: headerRequestId: [88dfc07b-3bf3-451c-aac4-09173b0f4585] model deployment ID: [d114-20250129021213]
+2025-02-11 15:40:46.446 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 298 ms
+2025-02-11 15:40:46.447 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:40:46.447 [info] [streamChoices] request done: headerRequestId: [952a2bfb-45fa-42db-aed6-91967b4e9d90] model deployment ID: [d118-20250130043219]
+2025-02-11 15:46:06.181 [warning] [relatedFiles] unknown language shellscript
+2025-02-11 15:46:40.954 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 748 ms
+2025-02-11 15:46:40.956 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:46:40.957 [info] [streamChoices] request done: headerRequestId: [2e809610-9aa6-49b7-88e2-50a9b66c7b7f] model deployment ID: [d232-20250130232004]
+2025-02-11 15:47:24.678 [info] [fetchCompletions] request.response: [https://proxy.individual.githubcopilot.com/v1/engines/copilot-codex/completions] took 682 ms
+2025-02-11 15:47:24.718 [info] [streamChoices] solution 0 returned. finish reason: [stop]
+2025-02-11 15:47:24.723 [info] [streamChoices] request done: headerRequestId: [3d88745d-1097-499d-95e9-50294a877c32] model deployment ID: [d231-20250130215257]

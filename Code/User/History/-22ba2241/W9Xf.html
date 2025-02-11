@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mashroom Mama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #f7f7f7, #e2e2e2);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            width: 100%;
+            background: #abcea5;
+            border-radius: 5px;
+            padding: 0 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+        }
+
+        header .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header .nav-bar a {
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #277916;
+            font-family: "Poppins", serif;
+            transition: color 0.3s ease-in;
+        }
+
+        header .nav-bar a:hover {
+            color: #000;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .container img {
+            height: auto;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .description {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container .description h1 {
+            margin-top: 20px;
+            font-size: 2.6rem;
+            color: #277916;
+            font-weight: bold;
+            font-family: "Poetsen One", serif;
+        }
+
+        .container .description span {
+            color: peru;
+            font-family: "Fredoka";
+            font-style: italic;
+        }
+
+        .container .description p {
+            font-family: "Montserrat";
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        .container .tag2 p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .container .description .box {
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            margin: 20px auto;
+            border: 3px solid #277916;
+            border-radius: 50px;
+            text-align: center;
+            background-color: #0b5b00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .container .description .box:hover {
+            background-color: #277916;
+        }
+
+        .container .description .box p {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .footer {
+            width: 100%;
+            height: 150px;
+            background-color: #277916;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Poppins", serif;
+            font-size: 1.2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+
+            header img {
+                margin-bottom: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 0 10px;
+            }
+
+            .container img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .container .description h1 {
+                font-size: 2rem;
+            }
+
+            .container .description p {
+                font-size: 1.2rem;
+            }
+
+            .container .description .box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <img src="images/Mm logo round.PNG" alt="Mashroom Mama Logo">
+        </div>
+        <div class="nav-content">
+            <nav class="nav-bar">
+                <a href="#" class="contact-btn">CONTACT</a>
+            </nav>
+        </div>
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact Us</h2>
+                <p>Email: contact@mushroommama.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <img src="images/Mushroom Wings.jpg" alt="Mushroom Wings">
+        <div class="description">
+            <h1>INDIA'S FIRST <span>VEG</span> WINGS</h1>
+            <p>Only in Mushroom MaMa</p>
+            <div class="tag2">
+                <p>-Not For Franchiese</p>
+            </div>
+            <div class="box">
+                <p>Order Now</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        &copy; 2023 Mushroom Mama. All rights reserved.
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("contactModal");
+            var btn = document.querySelector(".contact-btn");
+            var span = document.querySelector(".close");
+
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "block";
+            });
+
+            span.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.box {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.box.dragover {
+  border-color: #007bff;
+  background-color: #e9f5ff;
+}
+
+.box span {
+  display: block;
+  margin-top: 10px;
+  color: #666;
+}
+
+.submit {
+  display: block;
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit:hover {
+  background: #0056b3;
+}
+
+.output-format {
+  margin-bottom: 20px;
+}
+
+.output-format label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.bottom {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.bottom a:hover {
+  text-decoration: underline;
+}
+
+#file-name {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}

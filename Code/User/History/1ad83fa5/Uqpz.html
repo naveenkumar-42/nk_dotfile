@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 768px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    #timer, #wordsTyped {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3b82f6;
+      margin-bottom: 16px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      resize: none;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #3b82f6;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .start-btn {
+      background-color: #3b82f6;
+      color: white;
+    }
+
+    .start-btn:hover {
+      background-color: #2563eb;
+    }
+
+    .refresh-btn {
+      background-color: #6b7280;
+      color: white;
+    }
+
+    .refresh-btn:hover {
+      background-color: #4b5563;
+    }
+
+    .result-container {
+      background-color: #eff6ff;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .result-container h3 {
+      color: #10b981;
+      font-size: 20px;
+    }
+
+    .highlight-green {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .highlight-red {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .highlight-black {
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .highlight-green {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .highlight-red {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .highlight-black {
+      color: black;
+    }
+
+    .result-transition {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body >
+      <header>
+        <div class="nav-bar">
+          <div class="logo-container">
+            <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+          </div>
+          <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      
+      
+      
+          <div class="menu-links">
+            <a class="nav-btn" href="#">Home</a>
+            <a class="nav-btn" href="#">Features</a>
+            <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+            <a class="nav-btn" href="#">Contact</a>
+            <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+            <div class="login">
+              <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+            <!-- </div> -->
+          </div>
+      </header>
+      <section class="bg-gray-100 font-sans flex justify-center items-center min-h-screen ">
+  <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-3xl">
+    <h2 class="text-3xl font-semibold text-center mb-6">Typing Game - Difficulty: {{ difficulty | capitalize }}</h2>
+    <p id="paragraph" class="text-xl text-gray-600 mb-4">{{ paragraph }}</p>
+    <p id="timer" class="text-lg font-medium text-blue-500 mb-2">Game not started</p>
+    <p id="wordsTyped" class="text-lg text-blue-500 font-semibold mb-4">Words Typed: 0</p>
+    <textarea id="inputBox" placeholder="Start typing here..." oninput="checkInput(event)" disabled rows="4"
+      class="w-full p-4 text-xl rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none mb-4"></textarea>
+    <div class="flex justify-center gap-4">
+      <button onclick="startTyping()"
+        class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-colors duration-300">Start</button>
+      <button onclick="refreshGame()"
+        class="bg-gray-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-300">Refresh</button>
+    </div>
+    <div id="results" class="mt-6 p-4 bg-blue-50 rounded-lg shadow-md hidden result-transition">
+      <h3 class="text-green-500 text-2xl font-semibold">Game Over!</h3>
+      <p class="text-lg text-gray-700"><strong>WPM:</strong> <span id="wpm">0</span></p>
+      <p class="text-lg text-gray-700"><strong>Accuracy:</strong> <span id="accuracy">0%</span></p>
+      <p class="text-lg text-gray-700"><strong>Time Taken:</strong> <span id="timeTaken">0 seconds</span></p>
+      <p class="text-lg text-gray-700"><strong>Total Words Typed:</strong> <span id="totalWords">0</span></p>
+      <p class="text-lg text-gray-700"><strong>Correct Words:</strong> <span id="correctWords">0</span></p>
+    </div>
+  </div>
+  </section>
+
+  <script>
+    let startTime;
+    let userInput = '';
+    let isTypingStarted = false;
+    let timer;
+    let timeLeft = 60;
+    let wordsTyped = 0;
+    let isGameRunning = false;
+    let paragraphWords;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const paragraphElement = document.getElementById('paragraph');
+      paragraphWords = paragraphElement.innerText.split(" ").map(word => {
+        let span = document.createElement("span");
+        span.textContent = word + " ";
+        span.classList.add('highlight-black');
+        return span;
+      });
+      paragraphElement.innerHTML = "";
+      paragraphWords.forEach(span => paragraphElement.appendChild(span));
+    });
+
+    function startTyping() {
+      if (!isGameRunning) {
+        timeLeft = 60;
+        wordsTyped = 0;
+        document.getElementById('wordsTyped').textContent = "Words Typed: 0";
+        document.getElementById('timer').textContent = timeLeft + " seconds left";
+        document.getElementById('results').classList.add("hidden");
+        document.getElementById('inputBox').value = "";
+        document.getElementById('inputBox').disabled = false;
+        document.getElementById('inputBox').focus();
+        isTypingStarted = false;
+        isGameRunning = true;
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      startTime = new Date().getTime();
+      timer = setInterval(function () {
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          finishGame();
+        } else {
+          document.getElementById('timer').textContent = timeLeft + " seconds left";
+          timeLeft--;
+        }
+      }, 1000);
+    }
+
+    function refreshGame() {
+      window.location.reload();
+    }
+
+    function checkInput(event) {
+      if (!isTypingStarted) {
+        startTyping();
+        isTypingStarted = true;
+      }
+      userInput = event.target.value.trim();
+      let typedWords = userInput.split(/\s+/);
+      wordsTyped = typedWords.length;
+      document.getElementById('wordsTyped').textContent = "Words Typed: " + wordsTyped;
+      updateTextHighlighting(typedWords);
+    }
+
+    function updateTextHighlighting(typedWords) {
+      paragraphWords.forEach((span, index) => {
+        if (index < typedWords.length) {
+          if (typedWords[index] === span.textContent.trim()) {
+            span.classList.add('highlight-green');
+            span.classList.remove('highlight-red', 'highlight-black');
+          } else {
+            span.classList.add('highlight-red');
+            span.classList.remove('highlight-green', 'highlight-black');
+          }
+        } else {
+          span.classList.add('highlight-black');
+          span.classList.remove('highlight-green', 'highlight-red');
+        }
+      });
+    }
+
+    function finishGame() {
+      let endTime = new Date().getTime();
+      document.getElementById('inputBox').disabled = true;
+      let userInputEncoded = encodeURIComponent(userInput);
+      let url = `/calculate_result/${userInputEncoded}/${startTime}/${endTime}/{{ difficulty }}`;
+
+      // Show the results section after game finishes with smooth transition
+      document.getElementById('results').classList.remove("hidden");
+      document.getElementById('results').classList.add("result-transition");
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // Ensure we have a valid response before updating the UI
+          if (data) {
+            // Update the results section with the fetched data
+            document.getElementById('wpm').textContent = data.wpm || 'N/A';
+            document.getElementById('accuracy').textContent = data.accuracy + "%" || 'N/A';
+            document.getElementById('timeTaken').textContent = data.time_taken + " seconds" || 'N/A';
+            document.getElementById('totalWords').textContent = data.words_typed || 'N/A';
+            document.getElementById('correctWords').textContent = data.correct_words || 'N/A';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching game results:', error);
+          document.getElementById('results').innerHTML = "<p class='text-red-500'>There was an error fetching the results.</p>";
+        });
+    }
+
+  </script>
+</body>
+
+</html>

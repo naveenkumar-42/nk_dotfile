@@ -1,0 +1,10 @@
+[general]
+bars = 10   # Adjust based on Waybar height
+framerate = 60
+
+[output]
+method = raw
+raw_target = stdout
+data_format = ascii
+ascii_max_range = 5  # Reduce range for better Waybar output
+

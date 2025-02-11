@@ -1,0 +1,6 @@
+[output]
+method = raw
+raw_target = /home/navee/.config/cava/output
+data_format = ascii
+ascii_max_range = 100
+

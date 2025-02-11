@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert PDF to Word</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feature.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    
+    
+    
+            <div class="menu-links">
+                <a class="nav-btn" href="{{ url_for('home')}}">Home</a>
+                <a class="nav-btn" href="#">Features</a>
+                <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+                <a class="nav-btn" href="#">Contact</a>
+                <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+                <div class="login">
+                    <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+    </header>
+    <div class="main-container">
+    <div class="container">
+        <h1>Convert PDF to Word</h1>
+        <form action="/convert_pdf" method="POST" enctype="multipart/form-data">
+            <div class="box" id="drop-zone">
+                <input type="file" name="pdf_file" id="pdf_file" accept="application/pdf" hidden required>
+                <span>Drag and drop a PDF file or click to select</span>
+            </div>
+            <p id="file-name"></p>
+            <div class="output-format">
+                <label for="output_format">Select Output Format:</label>
+                <select name="output_format" id="output_format" required>
+                    <option value="word">Word (.docx)</option>
+                    <option value="text">Text (.txt)</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-btn">
+            <button type="submit" class="submit">Convert</button>
+            </div>
+        </form>
+        <div class="bottom">
+            <p>Need help? <a href="/help">Contact Support</a></p>
+        </div>
+    </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+        
+    </script>
+
+</body>
+
+</html>

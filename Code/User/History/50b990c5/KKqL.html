@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback and Support</title>
+    <style>
+        body {
+            background-color: #FEE2E2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 32rem;
+        }
+        .header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #DC2626;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            color: #B91C1C;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #FCA5A5;
+            border-radius: 0.5rem;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #DC2626;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.5);
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #DC2626;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #B91C1C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Feedback and Support</h1>
+        </header>
+        <form action="https://formspree.io/f/xvgpadov" method="POST" onsubmit="redirectToHome()">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function redirectToHome() {
+            setTimeout(function() {
+                window.location.href = "{{ url_for('home') }}";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

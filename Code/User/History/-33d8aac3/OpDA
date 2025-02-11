@@ -1,0 +1,24 @@
+first commit
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   background.png
+#	new file:   hypridle.conf
+#	new file:   hyprland.conf
+#	new file:   hyprland/autostart.conf
+#	new file:   hyprland/env.conf
+#	new file:   hyprland/input.conf
+#	new file:   hyprland/keybindings.conf
+#	new file:   hyprland/look.conf
+#	new file:   hyprland/monitors.conf
+#	new file:   hyprland/nvidia.conf
+#	new file:   hyprland/windowrules.conf
+#	new file:   hyprlock.conf
+#	new file:   hyprpaper.conf
+#	new file:   mocha.conf
+#

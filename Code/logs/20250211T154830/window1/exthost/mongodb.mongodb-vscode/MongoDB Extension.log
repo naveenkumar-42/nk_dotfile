@@ -1,0 +1,39 @@
+2025-02-11 15:48:33.469 [info] 2025-02-11T10:18:33.350Z extension INFO  Activating extension... [
+  {
+    id: 'mongodb.mongodb-vscode',
+    version: '1.12.0',
+    mode: 'Production',
+    kind: 'UI',
+    extensionPath: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0',
+    logPath: '/home/navee/.config/Code/logs/20250211T154830/window1/exthost/mongodb.mongodb-vscode',
+    workspaceStoragePath: '/home/navee/.config/Code/User/workspaceStorage/84fee3322b997396874922d0b9f7b70c/mongodb.mongodb-vscode',
+    globalStoragePath: '/home/navee/.config/Code/User/globalStorage/mongodb.mongodb-vscode',
+    defaultConnectionSavingLocation: 'Global',
+    buildInfo: {
+      nodeVersion: 'v20.18.1',
+      runtimePlatform: 'linux',
+      runtimeArch: 'x64'
+    }
+  }
+]
+
+2025-02-11 15:48:33.469 [info] 2025-02-11T10:18:33.352Z language server controller INFO  Creating MongoDB Language Server... [
+  {
+    extensionPath: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0',
+    languageServer: {
+      id: 'mongodbLanguageServer',
+      name: 'MongoDB Language Server',
+      path: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0/dist/languageServer.js',
+      documentSelector: '[{"pattern":"**/*.mongodb.js"},{"pattern":"**/*.mongodb"}]'
+    }
+  }
+]
+
+2025-02-11 15:48:33.469 [info] 2025-02-11T10:18:33.361Z telemetry INFO  Segment analytics activated [ { anonymousId: '7eb59b6c-5448-4647-bda8-1a7fe2395662' } ]
+
+2025-02-11 15:48:33.469 [info] 2025-02-11T10:18:33.362Z participant INFO  Chat participant created [ { participantId: 'mongodb.participant' } ]
+
+2025-02-11 15:48:33.469 [info] 2025-02-11T10:18:33.364Z language server controller INFO  Starting the language server... []
+
+2025-02-11 15:48:34.032 [info] 2025-02-11T10:18:34.032Z language server controller INFO  MongoDBService initialized. Sending default settings... {"extensionPath":"/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0","connectionId":null,"hasConnectionString":false,"hasConnectionOptions":false} []
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashroom Mama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:wght@100..900&family=Poetsen+One&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <img src="images/Mm logo round.PNG" alt="Mushroom Mama Logo">
+        <nav class="nav-bar">
+            <a href="#" class="contact-btn">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <img src="images/Mushroom_Wings hd.png" alt="Mushroom Wings">
+        <div class="description">
+            <h1>INDIA'S FIRST <span>VEG</span> WINGS</h1>
+            <p>Only in Mushroom MaMa</p>
+            <p>-Not For Franchiese</p>
+            <div class="box">
+                <p>Order Now</p>
+                <a href="https://www.zomato.com/login">
+                    <button class="img-btn"></button>
+                </a>
+                <a href="https://www.swiggy.com/">
+                    <button class="img-btn2"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Us</h2>
+            <p>Please feel free to reach out to us. We are happy to assist you!</p>
+            <form>
+                <input type="text" placeholder="Your Name" required><br><br>
+                <input type="email" placeholder="Your Email" required><br><br>
+                <textarea placeholder="Your Message" required></textarea><br><br>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <p>
+                <i class="fa-solid fa-phone" style="color: #ffffff;"></i> +91 90257 97638
+            </p>
+            <p>|
+                <i class="fa-regular fa-envelope" style="color: #fcfcfc;"></i> mushroommama@gmail.com
+            </p>
+            <p>|
+                <a href="www.instagram.com">
+                    <i class="fa-brands fa-instagram" style="color: #fafafa;"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-google" style="color: #fcfcfc;"></i>
+                </a>
+            </p>
+        </div>
+        <p>
+            &copy; 2025 MushroomMama. All rights reserved.
+        </p>
+        <p>
+            Created with ❤️ by <a href=""> Solvixsofteworks</a>
+        </p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("contactModal");
+            var btn = document.querySelector(".contact-btn");
+            var span = document.querySelector(".close");
+
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "block";
+            });
+
+            span.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

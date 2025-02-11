@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback and Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feature.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <style>
+        .main-container{
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 32rem;
+        }
+
+         .boxx {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .boxx input {
+            width: 80%;
+            height: 25px;
+            padding: 10px;
+            border: 1px solid #fff;
+            background-color: var(--bg-color);
+            border-radius: 5px;
+            outline: none;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .boxx span {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 10px;
+            color: var(--secondary-bg-color);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-left: 10px;
+            letter-spacing: 0.2em;
+            transition: 0.2s;
+        }
+
+        .boxx input:valid~span,
+        .boxx input:focus~span {
+            color: var(--text-color);
+            transform: translateX(10px) translateY(-30px);
+            font-size: 0.75em;
+            padding: 0 5px;
+            background-color: var(--bg-color);
+            border-left: 1px solid var(--main-color);
+            border-right: 1px solid var(--main-color);
+        }
+
+        .boxx input:valid,
+        .boxx input:focus {
+            border: 1px solid var(--main-color);
+        }
+        .header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            color: #B91C1C;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #FCA5A5;
+            border-radius: 0.5rem;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #DC2626;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.5);
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #DC2626;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #B91C1C;
+        }
+    </style>
+</head>
+<body>
+
+        <header>
+            <div class="nav-bar">
+                <div class="logo-container">
+                    <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+                </div>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+                <div class="menu-links">
+                    <a class="nav-btn" href="{{ url_for('home')}}">Home</a>
+        
+                    <!-- Features with Dropdown -->
+                    <div class="dropdown">
+                        <a class="nav-btn" href="#" onclick="toggleDropdown(event)">Features ▼</a>
+                        <div class="dropdown-content" id="featuresDropdown">
+                            <a href="{{ url_for('translator')}}">Translator</a>
+                            <a href="{{ url_for('convert_pdf')}}">PDF to Word</a>
+                            <a href="{{ url_for('convert_word_to_pdf')}}">Word to PDF</a>
+                            <a href="{{ url_for('convert_image_to_pdf')}}">Image to PDF</a>
+                            <a href="{{ url_for('convert_excel_to_pdf')}}">Excel to PDF</a>
+                            <a href="{{ url_for('compress_pdf')}}">Compress PDF</a>
+                            <a href="{{ url_for('pdf_to_image')}}">PDF to Image</a>
+                            <a href="{{ url_for('merge_pdfs')}}">Merge PDFs</a>
+                            <a href="{{ url_for('split_pdf')}}">Split PDFs</a>
+                        </div>
+                    </div>
+        
+                    <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+                    <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+                    <div class="login">
+                        <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <section class="main-container">
+    <div class="container">
+        <header class="header">
+            <h1>Feedback and Support</h1>
+        </header>
+        <form action="https://formspree.io/f/xvgpadov" method="POST" onsubmit="redirectToHome()">
+            <div class="boxx">
+                
+                <input type="email" id="email" name="email" placeholder=" " required>
+            </div>
+            <div class="boxx">
+                
+                <input type="text" id="password" name="subject" placeholder=" " required>
+            </div>
+            <div class="boxx">
+                
+                <textarea name="message" placeholder=" " rows="5" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    </section>
+    <script>
+        function redirectToHome() {
+            setTimeout(function() {
+                window.location.href = "{{ url_for('home') }}";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

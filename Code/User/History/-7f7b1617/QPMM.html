@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feature.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        .main-container {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .drop-zone {
+            border: 2px dashed #5cb85c;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            color: #555;
+        }
+
+        .drop-zone.dragover {
+            background-color: #e6f7e6;
+        }
+
+        .file-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        /* Dropdown links */
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Hover effect */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show dropdown when active */
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu-links">
+                <a class="nav-btn" href="{{ url_for('home')}}">Home</a>
+
+                <!-- Features with Dropdown -->
+                <div class="dropdown">
+                    <a class="nav-btn" href="#" onclick="toggleDropdown(event)">Features ▼</a>
+                    <div class="dropdown-content" id="featuresDropdown">
+                        <a href="{{ url_for('translator')}}">Translator</a>
+                        <a href="{{ url_for('convert_pdf')}}">PDF to Word</a>
+                        <a href="{{ url_for('convert_word_to_pdf')}}">Word to PDF</a>
+                        <a href="{{ url_for('convert_image_to_pdf')}}">Image to PDF</a>
+                        <a href="{{ url_for('convert_excel_to_pdf')}}">Excel to PDF</a>
+                        <a href="{{ url_for('compress_pdf')}}">Compress PDF</a>
+                        <a href="{{ url_for('pdf_to_image')}}">PDF to Image</a>
+                        <a href="{{ url_for('merge_pdfs')}}">Merge PDFs</a>
+                        <a href="{{ url_for('split_pdf')}}">Split PDFs</a>
+                    </div>
+                </div>
+
+                <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+                <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+                <div class="login">
+                    <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="main-container">
+        <div class="container">
+            <h1>Split PDF</h1>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="box" id="dropZone">
+                    <span>Drag & Drop your PDF here or Click to Select</span>
+                </div>
+                <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" hidden required>
+                <p class="file-info" id="fileInfo">No file selected</p>
+                <label for="pages">Enter Pages or Ranges (e.g., 1, 3-5):</label>
+                <input type="text" name="pages" id="pages">
+                <div class="form-btn">
+                    <button type="submit" class="submit">Split</button>
+                </div>
+            </form>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+    </section>
+    <script>
+        const dropZone = document.getElementById("dropZone");
+        const fileInput = document.getElementById("pdf_file");
+        const fileInfo = document.getElementById("fileInfo");
+
+        dropZone.addEventListener("click", () => fileInput.click());
+
+        fileInput.addEventListener("change", () => {
+            fileInfo.textContent = fileInput.files.length ? fileInput.files[0].name : "No file selected";
+        });
+
+        dropZone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZone.classList.add("dragover");
+        });
+
+        dropZone.addEventListener("dragleave", () => {
+            dropZone.classList.remove("dragover");
+        });
+
+        dropZone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropZone.classList.remove("dragover");
+
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                fileInfo.textContent = fileInput.files[0].name;
+            }
+        });
+        function toggleDropdown(event) {
+            event.preventDefault(); // Prevent default anchor action
+            let dropdown = document.getElementById("featuresDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            let dropdown = document.getElementById("featuresDropdown");
+            if (!event.target.closest(".dropdown")) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

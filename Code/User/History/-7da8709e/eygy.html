@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+        :root {
+            --bg-color: white;
+            --text-color: #000000;
+            --main-color: white;
+            --secondary-bg-color: #CCCCCC;
+            --button-bg-color: #007BFF;
+            --button-text-color: #000000;
+            --dropdown-bg-color: #007BFF;
+            --dropdown-text-color: #000000;
+            --nav-bg-color: #D32F2F;
+        }
+
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--nav-bg-color);
+            z-index: 1000;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .hamburger-menu {
+            display: block; /* Always show hamburger */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navigation-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .navigation-menu.active {
+            display: block;
+        }
+
+        .navigation-menu a {
+            display: block;
+            padding: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .navigation-menu a i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .logout-button {
+            background-color: #c62828;
+            color: white !important;
+        }
+
+        /* Container & Content */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .heading {
+            color: #03045f;
+            font-family: "Bagel Fat One", serif;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Translation Form */
+        .dropdown-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        select{
+            
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        select:hover{
+            box-shadow: 0px 0px 14px 14px rgba(27, 22, 22, 0.1);
+        }
+
+        .textarea {
+             padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+             width: 80%;
+            min-height: 150px;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+
+        .textarea:hover{
+            box-shadow: 0px 0px 14px 14px rgba(27, 22, 22, 0.1);
+        }
+
+        .button {
+            background-color: var(--nav-bg-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+
+        .speak-button{
+        padding: 15px;
+        gap: 10px;
+      border-radius: 50px;
+      font-size: medium;
+      border: none;
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--secondary-color);
+      background-color: var(--primary-color);
+      transition: background 0.3s;
+        }
+
+            .speak-button:hover {
+      background-color: var(--button-hover);
+      box-shadow: 0px 0px 14px 14px rgba(204, 25, 25, 0.1);
+    }
+
+        .button:hover {
+           background-color: var(--button-hover);
+      box-shadow: 0px 0px 14px 14px rgba(204, 25, 25, 0.1);
+        }
+
+        /* Results & History */
+        .result, .suggestion {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+        }
+
+        .result:hover{
+               box-shadow: 0px 0px 14px 14px rgba(27, 22, 22, 0.1);
+    
+        }
+
+        .social-sharing {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .voice-select-container {
+            margin: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .dropdown-group {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        .heading-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .header-menu {
+            position: absolute;
+            right: 0;
+        }
+
+        .header-hamburger {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #03045f;
+            padding: 0.5rem;
+            margin-right: 30px;
+            margin-bottom: 5px;
+        }
+
+        .header-hamburger:hover{
+            box-shadow: 0px 0px 14px 14px rgba(27, 22, 22, 0.1);
+        }
+
+
+        .header-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            min-width: 200px;
+            z-index: 1000;
+        }
+
+        .header-nav.active {
+            display: block;
+        }
+
+        .header-nav a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .form-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/V0gNgWqd/Untitled.png" class="logo" alt="FlowBite Logo" />
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu-links">
+                <a class="nav-btn" href="{{ url_for('home')}}">Home</a>
+                <a class="nav-btn" href="#">Features</a>
+                <a class="nav-btn" href="{{ url_for('about') }}">About</a>
+                <a class="nav-btn" href="#">Contact</a>
+                <a class="nav-btn" href="{{ url_for('feedback') }}">Feedback</a>
+                <div class="login">
+                    <a class="login-btn" style="color: var(--bg-color);" href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="heading-wrapper">
+            <h1 class="heading">BIT Translator</h1>
+            <div class="header-menu">
+                <div class="header-hamburger" onclick="toggleHeaderNav()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav class="header-nav">
+                    <a href="{{ url_for('feedback') }}"><i class="fas fa-comment-dots"></i>Feedback</a>
+                    <a href="{{ url_for('favorites') }}"><i class="fas fa-star"></i>Favorites</a>
+                    <a href="{{ url_for('view_history') }}"><i class="fas fa-history"></i>History</a>
+                </nav>
+            </div>
+        </div>
+        
+        <form class="form-container" method="POST">
+            <div class="dropdown-group">
+                <select name="src_lang" required>
+                    <option value="auto">Detect Language</option>
+                    <option value="en">English</option>
+                    <option value="ta">Tamil</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="zh-cn">Chinese (Simplified)</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ru">Russian</option>
+                    <option value="ko">Korean</option>
+                    <option value="ar">Arabic</option>
+                    <option value="it">Italian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="bn">Bengali</option>
+                </select>
+                <select name="dest_lang" required>
+                    <option value="en">English</option>
+                    <option value="ta">Tamil</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="zh-cn">Chinese (Simplified)</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ru">Russian</option>
+                    <option value="ko">Korean</option>
+                    <option value="ar">Arabic</option>
+                    <option value="it">Italian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="bn">Bengali</option>
+                </select>
+            </div>
+            
+            <textarea class="textarea" name="text" id="text" placeholder="Enter text to translate" required></textarea>
+            
+            <div style="text-align: center;">
+                <button type="button" onclick="startDictation()" class="speak-button">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button type="submit" class="button">Translate</button>
+            </div>
+        </form>
+
+        <div class="voice-select-container">
+            <select id="voiceSelect"></select>
+        </div>
+
+        {% if translation %}
+        <div class="result">
+            <h2>Translation</h2>
+            <p id="translatedText">{{ translation }}</p>
+            <button onclick="copyText()" class="speak-button" style="background-color: rgb(102, 168, 102);"><i class="fa-solid fa-copy"></i></button>
+            <button onclick="speak('{{ translation }}')" class="speak-button"  style="background-color: rgb(133, 131, 54);"><i class="fa-solid fa-headphones"></i></button>
+            
+            <form id="favoriteForm" method="POST" action="{{ url_for('add_favorite') }}" style="display: none;">
+                <input type="hidden" name="text" value="{{ translation }}">
+                <input type="hidden" name="translation" value="{{ translation }}">
+                <input type="hidden" name="src" value="{{ src_lang }}">
+                <input type="hidden" name="dest" value="{{ dest_lang }}">
+            </form>
+            <button onclick="document.getElementById('favoriteForm').submit();"  style="background-color: rgb(240, 81, 108);" class="speak-button">
+                <i class="fa-solid fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="social-sharing">
+            <h2>Share Translation</h2>
+            <a href="https://twitter.com/intent/tweet?text={{ translation }}" target="_blank" 
+               class="social-button" style="background-color: #1DA1F2;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('home', _external=True) }}" 
+               target="_blank" class="social-button" style="background-color: #4267B2;">
+                <i class="fab fa-facebook"></i>
+                        </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url_for('home', _external=True) }}&title=Translation&summary={{ translation }}" 
+               target="_blank" class="social-button" style="background-color: #0077B5;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        {% endif %}
+
+        {% if suggestion %}
+        <div class="suggestion">
+            <h2>Suggested Translation</h2>
+            <p>{{ suggestion }}</p>
+            <button onclick="speak('{{ suggestion }}')" class="button">Listen</button>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Menu Toggle
+        function toggleNavigation() {
+            const navMenu = document.querySelector('.navigation-menu');
+            navMenu.classList.toggle('active');
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', (e) => {
+            const navMenu = document.querySelector('.navigation-menu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Voice Recognition
+        function startDictation() {
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+                var recognition = new webkitSpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = "en-US";
+                recognition.start();
+                
+                recognition.onresult = function(e) {
+                    document.getElementById('text').value = e.results[0][0].transcript;
+                    recognition.stop();
+                };
+                
+                recognition.onerror = function(e) {
+                    recognition.stop();
+                };
+            }
+        }
+
+        // Voice Synthesis
+        let voices = [];
+        function populateVoiceList() {
+            voices = window.speechSynthesis.getVoices();
+            let voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            voices.forEach((voice, i) => {
+                let option = document.createElement('option');
+                option.value = voice.name;
+                option.textContent = voice.name;
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        window.speechSynthesis.onvoiceschanged = populateVoiceList;
+
+        function speak(text) {
+            let msg = new SpeechSynthesisUtterance(text);
+            let selectedVoiceName = document.getElementById('voiceSelect').value;
+            let selectedVoice = voices.find(voice => voice.name === selectedVoiceName);
+            
+            if (selectedVoice) {
+                msg.voice = selectedVoice;
+            }
+            window.speechSynthesis.speak(msg);
+        }
+
+        // Copy Text
+        function copyText() {
+            let translatedText = document.getElementById('translatedText').innerText;
+            navigator.clipboard.writeText(translatedText).then(
+                function() {
+                    alert('Translation copied to clipboard!');
+                }, 
+                function() {
+                    alert('Failed to copy text.');
+                }
+            );
+        }
+
+        // Initialize voice list on load
+        document.addEventListener('DOMContentLoaded', populateVoiceList);
+
+        // Header Menu Toggle
+        function toggleHeaderNav() {
+            const nav = document.querySelector('.header-nav');
+            nav.classList.toggle('active');
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.header-nav');
+            const hamburger = document.querySelector('.header-hamburger');
+            
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+               function toggleMenu() {
+                    document.querySelector('.menu-links').classList.toggle('active');
+                }
+
+                // Close menu when clicking outside (for mobile only)
+                document.addEventListener('click', function (event) {
+                    const menu = document.querySelector('.menu-links');
+                    const menuIcon = document.querySelector('.menu-icon');
+
+                    if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                        menu.classList.remove('active');
+                    }
+                });
+    </script>
+</body>
+</html>

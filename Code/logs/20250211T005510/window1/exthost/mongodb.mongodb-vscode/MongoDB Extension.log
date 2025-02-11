@@ -1,0 +1,57 @@
+2025-02-11 00:55:13.368 [info] 2025-02-10T19:25:13.303Z extension INFO  Activating extension... [
+  {
+    id: 'mongodb.mongodb-vscode',
+    version: '1.12.0',
+    mode: 'Production',
+    kind: 'UI',
+    extensionPath: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0',
+    logPath: '/home/navee/.config/Code/logs/20250211T005510/window1/exthost/mongodb.mongodb-vscode',
+    workspaceStoragePath: '/home/navee/.config/Code/User/workspaceStorage/84fee3322b997396874922d0b9f7b70c/mongodb.mongodb-vscode',
+    globalStoragePath: '/home/navee/.config/Code/User/globalStorage/mongodb.mongodb-vscode',
+    defaultConnectionSavingLocation: 'Global',
+    buildInfo: {
+      nodeVersion: 'v20.18.1',
+      runtimePlatform: 'linux',
+      runtimeArch: 'x64'
+    }
+  }
+]
+
+2025-02-11 00:55:13.368 [info] 2025-02-10T19:25:13.305Z language server controller INFO  Creating MongoDB Language Server... [
+  {
+    extensionPath: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0',
+    languageServer: {
+      id: 'mongodbLanguageServer',
+      name: 'MongoDB Language Server',
+      path: '/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0/dist/languageServer.js',
+      documentSelector: '[{"pattern":"**/*.mongodb.js"},{"pattern":"**/*.mongodb"}]'
+    }
+  }
+]
+
+2025-02-11 00:55:13.368 [info] 2025-02-10T19:25:13.316Z telemetry INFO  Segment analytics activated [ { anonymousId: '7eb59b6c-5448-4647-bda8-1a7fe2395662' } ]
+
+2025-02-11 00:55:13.368 [info] 2025-02-10T19:25:13.317Z participant INFO  Chat participant created [ { participantId: 'mongodb.participant' } ]
+
+2025-02-11 00:55:13.368 [info] 2025-02-10T19:25:13.318Z language server controller INFO  Starting the language server... []
+
+2025-02-11 00:55:13.921 [info] 2025-02-10T19:25:13.921Z language server controller INFO  MongoDBService initialized. Sending default settings... {"extensionPath":"/home/navee/.vscode/extensions/mongodb.mongodb-vscode-1.12.0","connectionId":null,"hasConnectionString":false,"hasConnectionOptions":false} []
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.265Z extension INFO  Deactivating extension... []
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.265Z connection controller INFO  Disconnect called, currently connected to [ null ]
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.266Z language server controller INFO  Changing MongoDBService active connection... [ { connectionId: null } ]
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.266Z connection controller ERROR Unable to disconnect: no active connection []
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.268Z connection controller INFO  Disconnect called, currently connected to [ null ]
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.268Z language server controller INFO  Changing MongoDBService active connection... [ { connectionId: null } ]
+
+2025-02-11 01:03:13.271 [info] 2025-02-10T19:33:13.268Z connection controller ERROR Unable to disconnect: no active connection []
+
+2025-02-11 01:03:13.272 [info] 2025-02-10T19:33:13.271Z language server controller INFO  Deactivating the language server... []
+
+2025-02-11 01:03:13.272 [info] 2025-02-10T19:33:13.271Z language server controller INFO  Deactivating the language server... []
+

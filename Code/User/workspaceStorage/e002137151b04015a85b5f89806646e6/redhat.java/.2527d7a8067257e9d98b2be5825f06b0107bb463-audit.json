@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 2
+    },
+    "auditLog": "/home/navee/.config/Code/User/workspaceStorage/e002137151b04015a85b5f89806646e6/redhat.java/.2527d7a8067257e9d98b2be5825f06b0107bb463-audit.json",
+    "files": [
+        {
+            "date": 1738576004114,
+            "name": "/home/navee/.config/Code/User/workspaceStorage/e002137151b04015a85b5f89806646e6/redhat.java/client.log.2025-02-03",
+            "hash": "7af8447cee3434be0dadda60a544802ef3bd140a9a0f538146256e4cc34071f6"
+        }
+    ],
+    "hashType": "sha256"
+}
