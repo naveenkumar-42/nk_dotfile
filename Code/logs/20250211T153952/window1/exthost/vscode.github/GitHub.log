@@ -1,2 +1,0 @@
-2025-02-11 15:39:58.464 [info] Log level: Info
-2025-02-11 15:42:48.558 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for naveenkumar-42/hyprland/9eb99c1521077ebcb9e03330b5e6970524425966: TypeError: Cannot read properties of null (reading 'author')

@@ -1,6 +1,0 @@
-Flask
-Flask-Session
-requests
-firebase-admin
-googletrans
-scikit-learn

@@ -1,7 +1,0 @@
-2025-02-11 15:39:52.142 [info] update#setState idle
-2025-02-11 15:40:22.120 [info] update#setState checking for updates
-2025-02-11 15:40:22.213 [info] update#setState idle
-2025-02-11 15:41:50.098 [error] Blocked vscode-file request vscode-file://vscode-app/home/navee/.vscode/extensions/postman.postman-for-vscode-1.7.0/resources/postman-white.svg
-2025-02-11 15:41:50.099 [error] Blocked vscode-file request vscode-file://vscode-app/home/navee/.vscode/extensions/mtxr.sqltools-0.28.3/icons/sqltools-sidebar.svg
-2025-02-11 15:41:50.100 [error] Blocked vscode-file request vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/media/letterpress-dark.svg
-2025-02-11 15:41:50.100 [error] Blocked vscode-file request vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/media/codicon.ttf?5d4d76ab2ce5108968ad644d591a16a6
