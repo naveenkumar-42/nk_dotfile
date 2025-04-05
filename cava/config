@@ -241,7 +241,6 @@ gradient_color_3 = '#dfb3f1'  # Pastel Violet
 gradient_color_2 = '#72b5df'  # Light Blue
 gradient_color_1 = '#33cc99'  # Teal Green (New)
 
-transparency = 1
 
 
 
