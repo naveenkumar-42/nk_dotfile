@@ -12,21 +12,22 @@
     // "custom/cava_rgb"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "custom/weather"
   ],
-  "modules-right": [
-    "custom/weather",
-    "custom/updates",
-    "backlight",
-    "temperature",
-    "cpu",
-    "memory",
-    "battery",
-    "pulseaudio",
-    "idle_inhibitor",
-    "tray",
-    "custom/power"
-  ],
+"modules-right": [
+  "custom/updates",
+  "backlight",
+  "pulseaudio",
+  "temperature",
+  "cpu",
+  "memory",
+  "custom/network-speed",  // This references the correct module name
+  "battery",
+  "tray",
+  "idle_inhibitor"
+],
+
   // Modules configuration
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -201,5 +202,13 @@
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
   },
+
+  "custom/network-speed": {
+  "exec": "~/.config/waybar/scripts/network_speed.sh",
+  "interval": 1,
+  "tooltip": false,
+  "format": "{}"
+},
+
 },
 }

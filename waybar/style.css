@@ -63,6 +63,7 @@ window#waybar.empty #window{
 #temperature,
 #pulseaudio,
 #tray,
+#custom-network-speed,
 #custom-keyboard-layout,
 #backlight,
 #idle_inhibitor,
@@ -90,6 +91,7 @@ window#waybar.empty #window{
 #tray:hover,
 #custom-keyboard-layout:hover,
 #backlight:hover,
+#custom-network-speed:hover,
 #idle_inhibitor:hover,
 #window:hover,
 #custom-launcher:hover,
@@ -97,6 +99,7 @@ window#waybar.empty #window{
 #custom-updates:hover,
 #custom-network_traffic:hover,
 #custom-weather:hover,
+
 #custom-cava_rgb:hover {
     background: linear-gradient(135deg, #88c0d0, #5e81ac);
     /* Gradient on hover */
@@ -111,7 +114,7 @@ window#waybar.empty #window{
  * -------------------------------------------------------------------------- */
 
 #clock {
-    color: #a3be8c;
+    color: #eceff4 ;
 }
 
 #backlight {
