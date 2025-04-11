@@ -113,6 +113,10 @@ window#waybar.empty #window{
  * Module-specific styles
  * -------------------------------------------------------------------------- */
 
+ #custom-weather{
+    color: #ebcb8b;
+ }
+ 
 #clock {
     color: #eceff4 ;
 }

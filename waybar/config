@@ -8,8 +8,8 @@
   // "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
-    // "custom/cava_rgb"
+    "hyprland/window",
+     "custom/cava_rgb"
   ],
   "modules-center": [
     "clock",
@@ -66,12 +66,12 @@
   },
 
 
-// "custom/cava_rgb": {
-//   "exec": "~/.config/waybar/scripts/cava.sh",
-//   "interval": 0.1,
-//   "format": "{}",
-//   "tooltip": false
-// },
+"custom/cava_rgb": {
+  "exec": "~/.config/waybar/scripts/cava.sh",
+  "interval": 0.1,
+  "format": "{}",
+  "tooltip": false
+},
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -166,11 +166,7 @@
     "exec": "waybar-module-pacman-updates",
     "on-click": "kitty -e paru"
   },
-  // "custom/music_rgb": {
-  //   "exec": "~/.config/waybar/scripts/music_rgb.sh",
-  //   "interval": 1,
-  //   "format": "{}"
-  // },
+  
   "custom/power": {
     "format": "⏻",
     "on-click": "wlogout -b 5 -c 0 -r 0 -m 0 --protocol layer-shell",
