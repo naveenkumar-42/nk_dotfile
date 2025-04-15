@@ -6,7 +6,7 @@
 
 /* Reset all styles */
 * {
-    color: #eceff4;
+    color: #fbf8f4;
     font-family: "Symbols Nerd Font Mono";
     font-size: 15px;
     margin: 0 5px;
@@ -101,7 +101,7 @@ window#waybar.empty #window{
 #custom-weather:hover,
 
 #custom-cava_rgb:hover {
-    background: linear-gradient(135deg, #88c0d0, #5e81ac);
+    background: linear-gradient(135deg, #bfa0db, #6854ac);
     /* Gradient on hover */
     color: #eceff4;
     transition: all 0.1s ease-in-out;
