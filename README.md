@@ -66,7 +66,7 @@ Ensure the following tools are installed on your system:
 ```bash
 hyprland waybar mako cava fastfetch foot
 ```
-
+You may also need:
 ```bash
 xdg-desktop-portal-hyprland playerctl swww wl-clipboard brightnessctl
 ```
