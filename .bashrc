@@ -193,10 +193,18 @@ gcom() {
     git commit -m "$1"
 }
 
-fulg() {
+gpush() {
     git add .
     git commit -m "$1"
     git push origin main
+}
+
+w-on(){
+     chmod +x .config/waybar/scripts/cava.sh
+}
+
+w-off(){
+     chmod -x .config/waybar/scripts/cava.sh
 }
 
 ssh-auth() {
