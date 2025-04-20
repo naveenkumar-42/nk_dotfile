@@ -8,8 +8,8 @@
   // "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window",
-     "custom/cava_rgb"
+    "hyprland/window"
+    // "custom/cava_rgb"
   ],
   "modules-center": [
     "clock",
