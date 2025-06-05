@@ -151,6 +151,10 @@ Syu() {
     sudo pacman -Syu
 }
 
+r-pkg(){
+    sudo pacman -Rns $(pacman -Qdtq)
+}
+
 hotspot-on() {
     nmcli device wifi hotspot ifname wlp2s0 ssid Yo!-nk password Naveee42
 }
@@ -216,3 +220,7 @@ ssh-auth() {
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+r-pkg(){
+    sudo pacman -Rns $(pacman -Qdtq)
+}
