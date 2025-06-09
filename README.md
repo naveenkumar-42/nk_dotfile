@@ -3,13 +3,13 @@
 My personal, customized dotfiles for a clean and aesthetic **Arch Linux + Hyprland** setup.
 
 This repo includes configurations for:
-
 - 🧊 [Hyprland](https://github.com/hyprwm/Hyprland) — dynamic tiling Wayland compositor
 - 📟 [Foot](https://codeberg.org/dnkl/foot) — lightweight terminal emulator
 - 📦 [Fastfetch](https://github.com/fastfetch-cli/fastfetch) — system fetch tool
 - 🧾 [Waybar](https://github.com/Alexays/Waybar) — status bar
 - 🔔 [Mako](https://github.com/emersion/mako) — Wayland notification daemon
 - 🎶 [Cava](https://github.com/karlstav/cava) — audio visualizer
+- 📝 [Neovim](https://github.com/neovim/neovim) — modern vim-based text editor
 - 💻 `.bashrc` — shell customizations
 
 ---
