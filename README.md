@@ -33,6 +33,7 @@ nk_dotfile/
 ├── waybar/
 ├── foot/
 ├── cava/
+├── nvim/
 └── .bashrc
 ```
 Each folder contains the configuration files I personally tweaked to match my workflow and visual preferences.
@@ -55,6 +56,7 @@ cp -r hypr ~/.config/
 cp -r waybar ~/.config/
 cp -r foot ~/.config/
 cp -r cava ~/.config/
+cp -r nvim ~/.config/
 cp .bashrc ~/
 
 ```
@@ -64,7 +66,7 @@ You can also symlink or use tools like stow or chezmoi for easier dotfile manage
 Ensure the following tools are installed on your system:
 
 ```bash
-hyprland waybar mako cava fastfetch foot
+hyprland waybar mako cava fastfetch foot nvim
 ```
 You may also need:
 ```bash
