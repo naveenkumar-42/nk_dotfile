@@ -137,12 +137,12 @@ h() {
     history | grep "$1"
 }
 
-xampp-start()
+x-start()
 {
 sudo /opt/lampp/lampp start
 }
 
-xampp-stop()
+x-stop()
 {
 sudo /opt/lampp/lampp stop
 }
