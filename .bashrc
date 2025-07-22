@@ -148,11 +148,11 @@ sudo /opt/lampp/lampp stop
 }
 
 Syu() {
-    sudo pacman -Syu
+sudo pacman -Syu
 }
 
 r-pkg(){
-    sudo pacman -Rns $(pacman -Qdtq)
+sudo pacman -Rns $(pacman -Qdtq)
 }
 
 hotspot-on() {
@@ -165,6 +165,10 @@ hotspot-show(){
 
 hotspot-off() {
     nmcli connection down Hotspot-1
+}
+
+about-S(){
+    nmcli hardinfo2
 }
 
 # Search running processes
@@ -204,11 +208,11 @@ gpush() {
 }
 
 w-on(){
-     chmod +x .config/waybar/scripts/cava.sh
+    chmod +x .config/waybar/scripts/cava.sh
 }
 
 w-off(){
-     chmod -x .config/waybar/scripts/cava.sh
+    chmod -x .config/waybar/scripts/cava.sh
 }
 
 ssh-auth() {
@@ -220,7 +224,3 @@ ssh-auth() {
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
-
-r-pkg(){
-    sudo pacman -Rns $(pacman -Qdtq)
-}
