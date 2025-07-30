@@ -167,6 +167,10 @@ hotspot-off() {
     nmcli connection down Hotspot-1
 }
 
+about() {
+sudo dmidecode -t system
+}
+
 # Search running processes
 alias p="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
