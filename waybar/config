@@ -133,11 +133,11 @@
       "",
       ""
     ]
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",Q
-    // "format-icons": ["", "", "", "", "", "", "", "", "", ""]
-    // "format": "&#x202b;{icon}&#x202c; {capacity}%",
-    // "format-icons": ["ﱉ","ﱊ","ﱌ","ﱍ","ﱋ"]
+    //  "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    //  "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+    //  "format": "&#x202b;{icon}&#x202c; {capacity}%",
+    //  "format-icons": ["ﱉ","ﱊ","ﱌ","ﱍ","ﱋ"]
   },
   "network": {
     // "interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
