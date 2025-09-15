@@ -21,8 +21,8 @@ window#waybar {
     border-radius: 20px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
     /* Drop shadow */
-    padding: 5px;
-    margin: 5px;
+    padding: 4px;
+    margin: 4px;
 }
 
 window#waybar.empty #window{
@@ -43,14 +43,14 @@ window#waybar.empty #window{
 #workspaces button {
     padding: 2px 0px;
     border-bottom: 2px;
-    color: #eceff4;
+    color: #000000;
     border-color: #81a1c1;
     border-style: solid;
     margin-top: 2px;
 }
 
 #workspaces button.active {
-    border-color: #d8dee9;
+    border-color: #131414;
 }
 
 
@@ -99,9 +99,8 @@ window#waybar.empty #window{
 #custom-updates:hover,
 #custom-network_traffic:hover,
 #custom-weather:hover,
-
 #custom-cava_rgb:hover {
-    background: linear-gradient(135deg, #bfa0db, #6854ac);
+    background: linear-gradient(135deg, #3c3b3d, #747377);
     /* Gradient on hover */
     color: #eceff4;
     transition: all 0.1s ease-in-out;
