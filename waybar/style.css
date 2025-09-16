@@ -19,7 +19,7 @@ window#waybar {
     background:transparent;
     /* Semi-transparent background */
     border-radius: 20px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); */
     /* Drop shadow */
     padding: 4px;
     margin: 4px;
